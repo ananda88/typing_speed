@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <script src="app.js" /> -->
+    <script type="text/javascript" src="app.js">
+    </script>
+    <style>
+        #holder {
+            outline: none;
+            width: 80%;
+            margin-left: 10%;
+            height: 100vh;
+            overflow: scroll;
+            scroll-behavior: auto;
+            margin-top: 15%;
+            padding: 20px;
+            font-size: 36px;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        #timer {
+            background-color: rgb(202, 145, 255);
+            height: 100px;
+            width: 100%;
+            text-align: center;
+            padding-top: 20px;
+            font-size: 48px;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        #backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        #result-container {
+            width: 400px;
+            height: 200px;
+            background-color: white;
+            border-radius: 20px;
+            z-index: 2;
+            position: relative;
+            top: 50px;
+            left: 380px;
+            padding: 20px 50px;
+            font-size: 32px;
+        }
+
+        #button-holder>button {
+            padding: 20px;
+            height: 50px;
+            background-color: rgb(202, 145, 255);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .button-holder {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        p {
+            text-align: center;
+            margin-left: 30px;
+        }
+        .closure{
+            border: none;
+            background-color: white;
+            cursor: pointer;
+            position: relative;
+            left: 300px;
+            margin-bottom: 20px;
+            padding-top: 0;
+            margin-top: 0;
+        }
+        .try-button{
+            width: 100%;
+            background-color: rgb(202, 145, 255);
+            color: white;
+            border-radius: 10px;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            display: none;
+        }
+        .graph-container{
+            width: 460px;
+            height: 250px;
+            background-color: white;
+            z-index: 2;
+            position: relative;
+            top: 70px;
+            left: 380px;
+            padding: 20px;
+            border-radius: 20px;
+        }
+        #axis{
+            border-left: 2px solid black;
+            border-bottom: 2px solid black;
+            height: 220px;
+            display: flex;
+            align-items: end;
+        }
+        .bar{
+            height: 60px;
+            width: 10px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body onload="startup()">
+    <div id="result_holder">
+        <div id="backdrop">
+        </div>
+        <div id="result-container">
+            <div>
+                <button class="closure" onclick="closeModal()">close[x]</button>
+            </div>
+            <div id="button-holder">
+                <button onclick="setTimer(60000)">1 Minute Test</button>
+                <button onclick="setTimer(180000)">3 Minute Test</button>
+                <button onclick="setTimer(300000)">5 Minute Test</button>
+            </div>
+            <div id="result_text_container"></div>
+            <button id="reset-button" onclick="resetTest()" class="try-button">Try Again</button>
+        </div>
+        <div class="graph-container">
+            <div id="axis">
+            </div>
+        </div>
+    </div>
+    <div id="timer">01:00</div>
+    <div id="holder" tabindex="0"></div>
+</body>
+
+</html>
